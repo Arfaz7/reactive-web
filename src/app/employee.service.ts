@@ -42,19 +42,15 @@ export class EmployeeService {
   }
 
   headers = new HttpHeaders()
-  .set('Content-Type', 'application/json, application/x-ndjson')
+  .set('Content-Type', 'application/json')
   .set('Accept', 'application/json, application/x-ndjson');
 
   httpOptions = {
     headers: this.headers,
   };
 
-  createEmployee(name: string, salary: number) {
+  createEmployee(name: string, salary: number): Observable<EmployeeInfo> {
     console.log(`Creating employee with name: ${name} and salary: ${salary}`);
-    this.http.post<EmployeeInfo>(`${this.url}/create`, { name, salary }, this.httpOptions).subscribe({
-      next: (employee) => {
-        console.log('Employee:', employee);
-      }
-    });
+    return this.http.post<EmployeeInfo>(`${this.url}/create`, { name, salary }, this.httpOptions)
   }
 }
