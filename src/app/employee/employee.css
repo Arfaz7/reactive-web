@@ -1,0 +1,8 @@
+.employeeDetails {
+  background: var(--accent-color);
+  border-radius: 30px;
+}
+.employeeDetails-header, a {
+  color: var(--primary-color);
+  padding: 10px 20px 0 20px;
+}
