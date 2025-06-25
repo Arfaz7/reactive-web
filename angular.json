@@ -75,6 +75,16 @@
           },
           "defaultConfiguration": "production"
         },
+        "test": {
+          "builder": "@angular/build:karma",
+          "options": {
+          "polyfills": ["zone.js"],
+          "tsConfig": "tsconfig.app.json",
+          "scripts": [],
+          "styles": ["src/styles.css"],
+          "assets": ["src/assets", "src/favicon.ico"]
+          }
+        },
         "serve": {
           "builder": "@angular/build:dev-server",
           "configurations": {
